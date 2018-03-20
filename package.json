@@ -1,0 +1,27 @@
+{
+  "name": "building-e-commerce-in-amp",
+  "version": "0.1.0",
+  "description": "Codelab that explores the tools for building e-commerce pages in AMP.",
+  "main": "app.js",
+  "keywords": [
+    "AMP",
+    "amp-bind",
+    "Google",
+    "I/O 2018",
+    "Codelab"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googlecodelabs/building-e-commerce-amp.git"
+  },
+  "author": "cchiappini",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.15.2",
+    "formidable": "^1.1.1",
+    "cookie-parser": "^1.4.3",
+    "hogan-express": "0.5.2",
+    "hogan.js": "^3.0.2",
+    "axios": "^0.17.1"
+  }
+}
