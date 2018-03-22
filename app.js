@@ -158,17 +158,15 @@ app.get('/login', function(req, res) {
 });
 
 app.post('/submit', function(req, res) {
-  assertCors(req, res);
   var email = req.body.email;
   var password = req.body.password;
   var returnUrl = req.body.returnurl;
-  console.log('POST: ', email, returnUrl);
+  assertCors(req, res);
 
   // set user as logged in via cookie
   res.cookie('ampEmailLogin', email, {
     maxAge: AUTH_COOKIE_MAX_AGE // 2hr
   });
-
   res.redirect(returnUrl + '#success=true');
 });
 
@@ -301,8 +299,13 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders) {
       'AMP-Access-Control-Allow-Source-Origin'
     ]
     .concat(opt_exposeHeaders || []).join(', '));
-  res.setHeader('AMP-Access-Control-Allow-Source-Origin',
-    req.query.__amp_source_origin);
+  if (req.query.__amp_source_origin) {
+    res.setHeader('AMP-Access-Control-Allow-Source-Origin',
+      req.query.__amp_source_origin);
+  } else {
+    res.setHeader('AMP-Access-Control-Allow-Source-Origin',
+      origin);
+  }
 }
 
 function getUrlPrefix(req) {
