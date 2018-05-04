@@ -34,7 +34,7 @@ limitations under the License.
   <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
   <script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>
-
+  <meta name="amp-experiments-opt-in" content="amp-date-picker">
   <style amp-custom>
     /*** uncss> filename: https://code.getmdl.io/1.3.0/material.indigo-pink.min.css ***/
     /**
@@ -700,9 +700,9 @@ limitations under the License.
 
       <div>
        <h6>DELIVERY DATE:</h6>
-       <amp-date-picker type="single" src="delivery.json"
+       <amp-date-picker type="single" mode="overlay" src="delivery.json"
       on="select:AMP.setState({tooltip: event.id == 'deal'})"
-      locale="en" format="Y-MM-DD" show-clear-date min="2017-10-26" month-format="MMM">
+      locale="en" format="YYYY-MM-DD" show-clear-date min="2017-10-26" month-format="MMM" input-selector="#delivery">
         <input amp-date-placeholder-start placeholder="delivery" id="delivery"/>
         <template date-template id="deal" type="amp-mustache">
          {{D}}
